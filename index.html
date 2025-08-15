@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBot Personal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="bot-info">
+                <div class="bot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="bot-details">
+                    <h1>ChatBot Personal</h1>
+                    <span class="status">En línea</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages Container -->
+        <div class="messages-container" id="messagesContainer">
+            <div class="welcome-message">
+                <div class="bot-avatar-small">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <p>¡Hola! Soy tu ChatBot personal. Puedes preguntarme lo que quieras o simplemente conversar conmigo. ¿En qué puedo ayudarte hoy?</p>
+                    <span class="message-time" id="welcomeTime"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Container -->
+        <div class="input-container">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="messageInput" 
+                    placeholder="Escribe tu mensaje..." 
+                    maxlength="500"
+                    autocomplete="off"
+                >
+                <button id="sendButton" class="send-button">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="input-info">
+                <span class="char-counter">0/500</span>
+                <span class="tip">Presiona Enter para enviar</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading indicator -->
+    <div class="typing-indicator" id="typingIndicator">
+        <div class="bot-avatar-small">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="typing-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
