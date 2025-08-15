@@ -1,5 +1,38 @@
 async function processMessage(userInput) {
-    const normalizedInput = normalizeText(userInput);
+    const normalizedInput = normalizeText(userInput); { // document.addEventListener('DOMContentLoaded', function() {
+    const sendButton = document.getElementById('sendButton');
+    const messageInput = document.getElementById('messageInput');
+    const messagesContainer = document.getElementById('messagesContainer');
+
+    // Función para agregar mensajes al chat
+    function addMessage(text, sender = 'user') {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+        messageDiv.innerHTML = `<div class="message-content"><p>${text}</p></div>`;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight; // Auto-scroll
+    }
+
+    // Función para manejar el envío
+    async function handleSend() {
+        const userInput = messageInput.value.trim();
+        if (userInput) {
+            addMessage(userInput, 'user'); // Mostrar mensaje del usuario
+            messageInput.value = '';
+            // Aquí puedes llamar a tu función chatbot o simplemente responder fijo
+            const botResponse = '¡Mensaje recibido!'; // Reemplaza por tu lógica de respuesta
+            addMessage(botResponse, 'bot');
+        }
+    }
+
+    sendButton.addEventListener('click', handleSend);
+
+    messageInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            handleSend();
+        }
+    });
+});
 
     // Primero, intentar con las respuestas predefinidas (chatbot básico)
     for (const [keywords, responseList] of responses) {
